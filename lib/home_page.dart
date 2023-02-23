@@ -27,11 +27,12 @@ final TextEditingController _controller = TextEditingController();
                     return;
                   }
                   setState(() {
+                try{
                 int value = int.parse(_controller.text);
-                if(value < 5 && value > 35){
+                 _offset = offsetValue(value);
+                }catch(error){
+                  _controller.clear();
                   return;
-                }else{
-                  _offset = offsetValue(value);
                 }
                 
               });
@@ -46,14 +47,13 @@ final TextEditingController _controller = TextEditingController();
                     return;
                   }
               setState(() {
+                try{
                 int value = int.parse(_controller.text);
-                if(value < 5 && value > 35){
+                 _offset = offsetValue(value);
+                }catch(error){
+                  _controller.clear();
                   return;
-                }else{
-                  _offset = offsetValue(value);
-                }
-                
-              });
+                }});
               _controller.clear();
             }, child:  const Text("Enter a number")),
             const SizedBox(height: 50,),
@@ -68,7 +68,7 @@ final TextEditingController _controller = TextEditingController();
 
   Offset offsetValue(int value){
     Offset offset = const Offset(53, 35);
-            if(value==5){
+            if(value<=5){
                 offset = const Offset(-25,100);
                 }else if(value>5&&value<10){
                   offset = const Offset(-20, 80);
@@ -80,7 +80,7 @@ final TextEditingController _controller = TextEditingController();
                 }else if(value ==15){
                   offset = const Offset(10, 40);
                 }else if(value>15&&value<20){
-                  offset = const Offset(30, 35);
+                  offset = const Offset(35, 35);
                 }else if(value==20){
                   offset = const Offset(53, 35);
                 }else if(value>20&&value<25){
@@ -93,7 +93,7 @@ final TextEditingController _controller = TextEditingController();
                   offset = const Offset(110, 70);
                 }else if(value>30&&value<35){
                   offset = const Offset(120, 80);
-                }else if(value==35){
+                }else if(value>=35){
                   offset = const Offset(120, 100);
                 }
                 return offset;
