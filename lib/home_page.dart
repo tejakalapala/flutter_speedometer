@@ -28,7 +28,7 @@ final TextEditingController _controller = TextEditingController();
                   }
                   setState(() {
                 try{
-                int value = int.parse(_controller.text);
+                double value = double.parse(_controller.text);
                  _offset = offsetValue(value);
                 }catch(error){
                   _controller.clear();
@@ -48,7 +48,7 @@ final TextEditingController _controller = TextEditingController();
                   }
               setState(() {
                 try{
-                int value = int.parse(_controller.text);
+                double value = double.parse(_controller.text);
                  _offset = offsetValue(value);
                 }catch(error){
                   _controller.clear();
@@ -66,7 +66,7 @@ final TextEditingController _controller = TextEditingController();
     );
   }
 
-  Offset offsetValue(int value){
+  Offset offsetValue(double value){
     Offset offset = const Offset(53, 35);
             if(value<=5){
                 offset = const Offset(-25,100);
