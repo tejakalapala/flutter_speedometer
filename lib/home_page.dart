@@ -28,7 +28,7 @@ final TextEditingController _controller = TextEditingController();
                   }
                   setState(() {
                 try{
-                double value = double.parse(_controller.text);
+                int value = int.parse(_controller.text);
                  _offset = offsetValue(value);
                 }catch(error){
                   _controller.clear();
@@ -48,7 +48,7 @@ final TextEditingController _controller = TextEditingController();
                   }
               setState(() {
                 try{
-                double value = double.parse(_controller.text);
+                int value = int.parse(_controller.text);
                  _offset = offsetValue(value);
                 }catch(error){
                   _controller.clear();
@@ -66,33 +66,33 @@ final TextEditingController _controller = TextEditingController();
     );
   }
 
-  Offset offsetValue(double value){
+  Offset offsetValue(int value){
     Offset offset = const Offset(53, 35);
             if(value<=5){
                 offset = const Offset(-25,100);
                 }else if(value>5&&value<10){
-                  offset = const Offset(-20, 80);
+                  offset =  Offset(-20, 60+(10-value)*8);
                 }else if(value==10){
                   offset = const Offset(-20, 60);
                 }
                 else if(value>10&&value<15){
-                  offset = const Offset(-5, 45);
-                }else if(value ==15){
-                  offset = const Offset(10, 40);
+                  offset =  Offset((value-10)*7-20, 60+(10-value)*3.5);
+                }else if(value == 15){
+                  offset = const Offset(12, 37);
                 }else if(value>15&&value<20){
-                  offset = const Offset(35, 35);
+                  offset =  Offset((value-15)*10+7, 37);
                 }else if(value==20){
                   offset = const Offset(53, 35);
                 }else if(value>20&&value<25){
-                  offset = const Offset(70, 40);
+                  offset =  Offset(53+(value-20)*6, 35+(value-20)*2.5);
                 }else if(value==25){
                   offset = const Offset(85, 45);
                 }else if(value>25&&value<30){
-                  offset = const Offset(100, 50);
+                  offset =  Offset(85+(value-25)*6, 45+(value-25)*2.5);
                 }else if(value==30){
                   offset = const Offset(110, 70);
                 }else if(value>30&&value<35){
-                  offset = const Offset(120, 80);
+                  offset =  Offset(120, 70+(value-30)*6.0);
                 }else if(value>=35){
                   offset = const Offset(120, 100);
                 }
