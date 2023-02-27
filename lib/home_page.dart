@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_speedometer/arc.dart';
+import 'package:flutter_speedometer/speedometer_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -57,7 +57,7 @@ final TextEditingController _controller = TextEditingController();
               _controller.clear();
             }, child:  const Text("Enter a number")),
             const SizedBox(height: 50,),
-              ArcView(diameter: 100,offset:_offset),
+              SpeedometerView(diameter: 100,offset:_offset),
             
         ],
 
